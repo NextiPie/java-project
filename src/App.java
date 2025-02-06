@@ -10,19 +10,6 @@ class Author {
     }
 }
 
-
-class Reader {
-    String name;
-    List<Book> borrowedBooks = new ArrayList<>();
-
-    Reader(String name) {
-        this.name = name;
-    }
-}
-
-
-
-
 public class App {
     public static void main(String[] args) {
         Author author = new Author("Толстой");
