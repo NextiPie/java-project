@@ -9,7 +9,7 @@ class Library {
     Map<Reader, List<Book>> loans = new HashMap<>();
     List<Integer> ides = new ArrayList<>();
 
-
+    //Регистрация новых читателей с уникальным идентификатором
     void registerReader(String name, int idReaderForRegister) {
         readers.add(new Reader(name));
         if (ides.contains(idReaderForRegister)) {
@@ -20,11 +20,13 @@ class Library {
         }
     }
 
+    //Добавление новой книги в библиотеку
     void addBook(String title, Author author) {
         books.add(new Book(title, author));
         System.out.println("Книга успешно добавлена");
     }
 
+    //Выдача книг читателям
     void lendBook(String bookTitle, String nameReader) {
         for (Book book : books) {
             if (book.title.equals(bookTitle) && book.isAvaileble) {
@@ -42,6 +44,7 @@ class Library {
         System.out.println("Ошибка в названии книги или имени читателя");
     }
 
+    //Возврат книг
     void returnBook(String bookTitle, String nameReader) {
         for (Reader reader : readers) {
             if (reader.name.equals(nameReader)){
@@ -56,6 +59,7 @@ class Library {
         }
     }
 
+    //Поиск книг
     void searchBook(String query) {
         for (Book book : books) {
             if (book.title.contains(query) || book.author.name.contains(query)) {
@@ -66,6 +70,7 @@ class Library {
         }
     }
 
+    //Список взятых книг у конкретного читателя
     void listBorrowedBooks(String nameReaders) {
         for (Reader reader : readers) {
             if (reader.name.equals(nameReaders)) {
