@@ -34,8 +34,9 @@ class Library {
                     if (reader.name.equals(nameReader)) {
                         book.isAvaileble = false;
                         reader.borrowedBooks.add(book);
+                        java.time.LocalDate currentDate = java.time.LocalDate.now();
                         loans.computeIfAbsent(reader, k -> new ArrayList<>()).add(book);
-                        System.out.println("Книга: " + book.title + " выдана читателю: " + reader.name);
+                        System.out.println("Книга " + "'" + book.title + "'" + " выдана читателю: " + reader.name + " | " + currentDate);
                         return;
                     }
                 }
@@ -80,5 +81,11 @@ class Library {
             }
         }
     }
+
+    //Просмотр оставшегося времени до возврата
+    void checkRemainingTime() {
+
+    }
+
 
 }

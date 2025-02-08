@@ -19,8 +19,6 @@ public class App {
         library.returnBook("Война и мир", "Сергей");
         library.searchBook("Война и мир");
         library.listBorrowedBooks("Сергей");
-        java.time.LocalDate currentDate = java.time.LocalDate.now();
-        System.out.println(currentDate);
 
     }
 }
