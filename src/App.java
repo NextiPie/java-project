@@ -5,7 +5,7 @@ public class App {
         Author author = new Author("Толстой");
 
         Book book = new Book("Война и мир", author);
-        Book book1 = new Book("Преступление и наказание", author);
+        Book book1 = new Book("Преступление и наказание", author, "1866");
 
         Reader reader = new Reader("Сергей");
 
