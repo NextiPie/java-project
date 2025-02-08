@@ -7,11 +7,17 @@ class Library {
     List<Book> books = new ArrayList<>();
     List<Reader> readers = new ArrayList<>();
     Map<Reader, List<Book>> loans = new HashMap<>();
+    List<Integer> ides = new ArrayList<>();
 
 
-    void registerReader(String name) {
+    void registerReader(String name, int idReaderForRegister) {
         readers.add(new Reader(name));
-        System.out.println("Читатель успешно зарегистрирован");
+        if (ides.contains(idReaderForRegister)) {
+            System.out.println("Читатель с таким id уже зарегистрирован");
+        } else {
+            ides.add(idReaderForRegister);
+            System.out.println("Читатель успешно зарегистрирован с id: " + idReaderForRegister);
+        }
     }
 
     void addBook(String title, Author author) {

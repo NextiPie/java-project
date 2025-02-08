@@ -10,7 +10,8 @@ public class App {
         Reader reader = new Reader("Сергей");
 
         Library library = new Library();
-        library.registerReader("Сергей");
+        library.registerReader("Сергей", 13);
+        library.registerReader("Маша", 13);
         library.addBook("Война и мир", author);
         library.addBook("Преступление и наказание", author);
         library.lendBook("Война и мир", "Сергей");
