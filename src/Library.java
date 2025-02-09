@@ -16,6 +16,11 @@ class Library {
             System.out.println("Читатель с таким id уже зарегистрирован");
         } else {
             ides.add(idReaderForRegister);
+            for (Reader reader : readers) {
+                if (reader.id == idReaderForRegister) {
+                    reader.id = idReaderForRegister;
+                }
+            }
             System.out.println("Читатель успешно зарегистрирован с id: " + idReaderForRegister);
         }
     }
@@ -34,9 +39,9 @@ class Library {
                     if (reader.name.equals(nameReader)) {
                         book.isAvaileble = false;
                         reader.borrowedBooks.add(book);
-                        java.time.LocalDate currentDate = java.time.LocalDate.now();
+                        reader.setDateOfIssue(java.time.LocalDate.now());
                         loans.computeIfAbsent(reader, k -> new ArrayList<>()).add(book);
-                        System.out.println("Книга " + "'" + book.title + "'" + " выдана читателю: " + reader.name + " | " + currentDate);
+                        System.out.println("Книга " + "'" + book.title + "'" + " выдана читателю: " + reader.name + " | " + reader.getDateOfIssue());
                         return;
                     }
                 }
@@ -83,8 +88,12 @@ class Library {
     }
 
     //Просмотр оставшегося времени до возврата
-    void checkRemainingTime() {
-
+    void checkRemainingTime(String nameReader) {
+        for (Reader reader : readers) {
+            if (reader.name.equals(nameReader)) {
+                System.out.println("Читатель: " + reader.name + " взял книгу " + reader.getDateOfIssue() + " и должен вернуть ее до " + reader.calculateReturnDate(reader.getDateOfIssue()));
+            }
+        }
     }
 
 

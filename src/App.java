@@ -8,10 +8,11 @@ public class App {
         Book book1 = new Book("Преступление и наказание", author, "1866");
 
         Reader reader = new Reader("Сергей");
+        Reader reader1 = new Reader("Маша");
 
         Library library = new Library();
         library.registerReader("Сергей", 13);
-        library.registerReader("Маша", 13);
+        library.registerReader("Маша", 14);
         library.addBook("Война и мир", author);
         library.addBook("Преступление и наказание", author);
         library.lendBook("Война и мир", "Сергей");
@@ -19,7 +20,7 @@ public class App {
         library.returnBook("Война и мир", "Сергей");
         library.searchBook("Война и мир");
         library.listBorrowedBooks("Сергей");
-
+        library.checkRemainingTime("Сергей");
     }
 }
 
