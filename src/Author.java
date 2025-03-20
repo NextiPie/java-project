@@ -4,4 +4,5 @@ class Author {
     Author(String name) {
         this.name = name;
     }
+
 }

@@ -39,6 +39,7 @@ class Library {
                     if (reader.name.equals(nameReader)) {
                         book.isAvaileble = false;
                         reader.borrowedBooks.add(book);
+                        book.numberOfIssues += 1;
                         reader.setDateOfIssue(java.time.LocalDate.now());
                         loans.computeIfAbsent(reader, k -> new ArrayList<>()).add(book);
                         System.out.println("Книга " + "'" + book.title + "'" + " выдана читателю: " + reader.name + " | " + reader.getDateOfIssue());
@@ -65,16 +66,26 @@ class Library {
         }
     }
 
-    //Поиск книг
-    void searchBook(String query) {
+    //Поиск книг по названию
+    void searchBook(String titleBook) {
         for (Book book : books) {
-            if (book.title.contains(query) || book.author.name.contains(query)) {
+            if (book.title.contains(titleBook) || book.author.name.contains(titleBook)) {
                 System.out.println("Найдена книга: " + book.title + " " + book.author.name);
-            } else {
-                System.out.println("Книга не найдена");
             }
         }
     }
+
+    // Поиск по автору
+    void searchBook(Author authorName) {
+        for (Book book: books) {
+            if (book.author.equals(authorName)) {
+                System.out.println("Найден автор: " + book.author + " " + book.title);
+            }
+        }
+    }
+
+
+
 
     //Список взятых книг у конкретного читателя
     void listBorrowedBooks(String nameReaders) {
@@ -95,6 +106,17 @@ class Library {
             }
         }
     }
+
+
+
+    void popularityOfBook(String titleBook) {
+        for (Book book : books ) {
+            if (book.title.equals(titleBook)) {
+                System.out.println(book.title + " брали " + book.numberOfIssues + " раз");
+            }
+        }
+    }
+
 
 
 }
