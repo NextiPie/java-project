@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.*;
 
 class Library{
     List<Book> books = new ArrayList<>();
@@ -15,6 +16,12 @@ class Library{
     //Регистрация новых читателей с уникальным идентификатором
     void registerReader(String name, int idReaderForRegister) {
         readers.add(new Reader(name));
+        try(FileWriter writer = new FileWriter("readers.txt", false)) {
+            writer.write(name);
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
         if (ides.contains(idReaderForRegister)) {
             System.out.println("Читатель с таким id уже зарегистрирован");
         } else {
@@ -31,6 +38,13 @@ class Library{
     //Добавление новой книги в библиотеку
     void addBook(String title, Author author) {
         books.add(new Book(title, author));
+        try(FileWriter writer = new FileWriter("books.txt", true)) {
+            writer.write(title);
+            writer.write("\n");
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
         System.out.println("Книга успешно добавлена");
     }
 

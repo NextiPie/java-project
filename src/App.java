@@ -1,7 +1,9 @@
 import java.util.*;
+import java.io.*;
 
 public class App {
     public static void main(String[] args) throws Exception{
+
         Author author = new Author("Толстой");
         Author author1 = new Author("Пушкин");
 
@@ -14,7 +16,7 @@ public class App {
         Library library = new Library();
 
         library.registerReader("Сергей", 13);
-        //library.registerReader("Маша", 14);
+        library.registerReader("Маша", 14);
 
         library.addBook("Война и мир", author);
         //library.addBook("Преступление и наказание", author);
@@ -32,6 +34,9 @@ public class App {
         //library.checkRemainingTime("Сергей");
 
         //library.popularityOfBook("Война и мир");
+
+
+
     }
 }
 

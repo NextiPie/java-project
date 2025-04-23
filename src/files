@@ -1,0 +1,46 @@
+ДОБАВЛЕНИЕ В ФАЙЛ
+try(FileWriter writer = new FileWriter("library.txt", false)) {
+            String text = "test";
+            writer.write(text);
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+
+СОЗДАНИЕ ФАЙЛА
+try {
+            File file = new File("readers.txt");
+            if (file.createNewFile()) {
+                System.out.println("Файл readers.txt создан");
+            } else {
+                System.out.println("Файл readers.txt уже существует");
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при создании файла readers.txt");
+            e.printStackTrace();
+        }
+
+        try {
+            File file = new File("books.txt");
+            if (file.createNewFile()) {
+                System.out.println("Файл books.txt создан");
+            } else {
+                System.out.println("Файл books.txt уже существует");
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при создании файла books.txt");
+            e.printStackTrace();
+        }
+
+        try {
+            File file = new File("authors.txt");
+            if (file.createNewFile()) {
+                System.out.println("Файл authors.txt создан");
+            } else {
+                System.out.println("Файл authors.txt уже существует");
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при создании файла authors.txt");
+            e.printStackTrace();
+        }
